@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>h-vip-service</artifactId>
+        <groupId>com.hycan.idn</groupId>
+        <version>4.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>h-vip-service-biz</artifactId>
+
+
+    <dependencies>
+        <!--必备: 依赖api模块-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>station-service-api</artifactId>
+            <version>${station-service-api.version}</version>
+        </dependency>
+        <!--必备: 依赖api模块-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>h-vip-service-api</artifactId>
+            <version>${h-vip-service-api.version}</version>
+        </dependency>
+        <!--引入mqtt-->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-mqtt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-core</artifactId>
+            <version>${revision}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>redisson-spring-boot-starter</artifactId>
+                    <groupId>org.redisson</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.redisson</groupId>
+                    <artifactId>redisson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.redisson</groupId>
+                    <artifactId>redisson-spring-data-26</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-55</artifactId>
+        </dependency>
+
+        <!--必备：swagger-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-swagger</artifactId>
+        </dependency>
+        <!--必备：kafka-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-kafka</artifactId>
+        </dependency>
+        <!--必备：安全模块-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-security</artifactId>
+        </dependency>
+        <!--必备：日志处理-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-log</artifactId>
+        </dependency>
+        <!--必备: 注册中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--必备: 配置中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--必备：undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-job</artifactId>
+        </dependency>
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

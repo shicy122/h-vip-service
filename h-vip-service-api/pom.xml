@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>h-vip-service</artifactId>
+        <groupId>com.hycan.idn</groupId>
+        <version>4.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>h-vip-service-api</artifactId>
+    <version>${h-vip-service-api.version}</version>
+    <dependencies>
+        <!-- core 工具类 -->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-core</artifactId>
+        </dependency>
+        <!-- feign 依赖 -->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-feign</artifactId>
+        </dependency>
+        <!--可选：mybatis （需要链接数据库开启）-->
+        <dependency>
+            <groupId>com.hycan.idn</groupId>
+            <artifactId>tsp-common-mybatis</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

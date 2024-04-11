@@ -1,0 +1,48 @@
+server:
+  port: 7072
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:139.9.72.201}:${NACOS_PORT:30013}
+        namespace: e7e223c0-5a93-4b47-81db-5823605cf1e2
+        group: DEFAULT_GROUP
+        username: nacos
+        password: hycan@_666
+      config:
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          # 该公用配置文件存放不需要热更新的配置 如数据库连接配置
+          - data-id: application-dev.yml
+            refresh: false
+          # 该公用配置文件存放需要热更新的配置 如公用业务配置
+         # - data-id: application-refresh-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+         #   refresh: true
+        group: ${spring.cloud.nacos.discovery.group}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+security:
+  oauth2:
+    # 通用放行URL，服务个性化，请在对应配置文件覆盖
+    ignore:
+      urls:
+        - /vip-svc/**
+        - /actuator/**

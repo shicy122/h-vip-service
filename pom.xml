@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hycan.idn</groupId>
+        <artifactId>tsp-common</artifactId>
+        <version>1.0.25-RELEASE</version>
+    </parent>
+
+    <artifactId>h-vip-service</artifactId>
+    <packaging>pom</packaging>
+    <version>4.0.0</version>
+
+    <properties>
+        <hibernate-types-55.version>2.19.2</hibernate-types-55.version>
+        <flyway-core.version>7.7.3</flyway-core.version>
+        <h-vip-service-api.version>3.4.8-${suffix}</h-vip-service-api.version>
+        <station-service-api.version>4.0.0-${suffix}</station-service-api.version>
+        <sonar.qualitygate.wait>true</sonar.qualitygate.wait>
+        <suffix>SNAPSHOT</suffix>
+    </properties>
+
+    <!--项目子模块-->
+    <modules>
+        <module>h-vip-service-api</module>
+        <module>h-vip-service-biz</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vladmihalcea</groupId>
+                <artifactId>hibernate-types-55</artifactId>
+                <version>${hibernate-types-55.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
